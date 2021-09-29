@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import owo
 import time
-from dotenv import dotenv_values
+#from dotenv import dotenv_values
 import tweepy
 import os
  
