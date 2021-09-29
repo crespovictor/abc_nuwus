@@ -46,6 +46,7 @@ if __name__ == "__main__":
     api = tweepy.API(auth)
     feed = ''
     previous_url = ''
+    previously_tweeted = list(('a', 'b', 'c', 'd', 'e'))
     while True:
         try:
             feed = ReadRss('https://www.abc.net.au/news/feed/51120/rss.xml', headers)
@@ -55,11 +56,14 @@ if __name__ == "__main__":
             if(feed.urls):
                 print(".") #Just to debug, doesn't do anything else
                 if feed.urls[0].strip() != previous_url:
-                    print(time.strftime("%H:%M:%S", time.localtime()))
-                    text_to_tweet = owo.owo(feed.titles[0]) + " " + feed.urls[0].strip()
-                    print(text_to_tweet)
-                    api.update_status(text_to_tweet)
-                    previous_url = feed.urls[0].strip()
+                    if feed.urls[0].strip() not in previously_tweeted:
+                        print(time.strftime("%H:%M:%S", time.localtime()))
+                        text_to_tweet = owo.owo(feed.titles[0]) + " " + feed.urls[0].strip()
+                        print(text_to_tweet)
+                        api.update_status(text_to_tweet)
+                        previous_url = feed.urls[0].strip()
+                        previously_tweeted.insert(0, feed.urls[0].strip())
+                        previously_tweeted.pop()
             else:
                 print("sumething iz wwong!")
         time.sleep(30)
