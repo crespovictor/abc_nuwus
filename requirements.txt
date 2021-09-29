@@ -3,3 +3,4 @@ bs4==0.0.1
 requests
 text-to-owo==1.2.1
 tweepy==3.10.0
+lxml
