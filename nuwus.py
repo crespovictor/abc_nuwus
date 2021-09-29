@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import owo
 import time
-#from dotenv import dotenv_values
+# from dotenv import dotenv_values
 import tweepy
 import os
  
@@ -36,7 +36,7 @@ class ReadRss:
 
 
 if __name__ == "__main__":
-    config = dotenv_values(".env")
+    # config = dotenv_values(".env")
     CONSUMER_KEY = os.getenv("CONSUMER_KEY")
     CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
     ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
